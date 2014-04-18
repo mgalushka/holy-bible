@@ -2,28 +2,29 @@ import com.maximgalushka.bible.*;
 
 Gather g;
 String verse;
+PFont mono;
 
 void setup() {
-  size(800, 600);
-  //rect(10, 10, 780, 580);
-  stroke(255, 0, 0);
-
-  g = new Gather(5);
+  size(800, 400);
+  
+  fill(0);
+  mono = loadFont("Arial-BoldItalicMT-20.vlw");
+  textSize(15);
+  textFont(mono);
+  
+  g = new Gather(3);
   verse = g.random();
 }
 
 void draw() {
-  fill(0, 0, 0);
-  text(verse, 20, 200);
+  background(255);
+  text(verse, 20, 100, 760, 300);
 }
 
-
-void next() {
-}
 
 void mouseClicked() {
+  verse = g.random();
 }
-
 
 void keyPressed() {
   if (key == 'n') {
