@@ -81,16 +81,22 @@ public class Gather {
         String[] testament = (t == 0) ? oldTestament : newTestament;
         String book = testament[r.nextInt(testament.length - 1) + 1];
 
-        int chapter = r.nextInt(200);
+        int chapter = r.nextInt(50);
         while (true) {
             JsonNode chapters = api.request(
                     String.format("%s?Book=%s&chapter=%d", GET_CHAPTER, book, chapter));
             String ch = chapters.getObject().get("Output").toString();
             if (!ch.contains(WRONG)) {
                 String[] tokens = ch.split(SPLIT_VERSE);
-                return tokens[r.nextInt(tokens.length)];
+                String verse = tokens[r.nextInt(tokens.length)];
+                if (verse != null && !"".equals(verse.trim())) {
+                    return verse.trim();
+                }
             } else {
                 chapter /= 2;
+                if (chapter == 0) {
+                    book = testament[r.nextInt(testament.length - 1) + 1];
+                }
             }
         }
     }
