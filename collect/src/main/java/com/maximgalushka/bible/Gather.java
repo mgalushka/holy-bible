@@ -20,6 +20,7 @@ public class Gather {
     private static String SPLIT = "\\s?\\d+\\.\\s?";
     private static String SPLIT_VERSE = "\\s?\\d+\\s?";
 
+    private int buffer = 5;
     private BibleApi api;
     private String[] oldTestament;
     private String[] newTestament;
@@ -29,8 +30,9 @@ public class Gather {
 
     private Random r;
 
-    public Gather() {
+    public Gather(int buffer) {
         try {
+            this.buffer = buffer;
             this.api = new BibleApi();
             this.r = new Random(System.currentTimeMillis());
             this.q = new LinkedBlockingQueue<String>();
@@ -50,7 +52,7 @@ public class Gather {
     }
 
     private void fillQueue() throws UnirestException {
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < this.buffer; i++) {
             this.q.add(retrieveNextRandom());
         }
     }
@@ -94,7 +96,7 @@ public class Gather {
     }
 
     public static void main(String[] args) throws UnirestException {
-        Gather g = new Gather();
+        Gather g = new Gather(1);
         for (int i = 0; i < 20; i++) {
             System.out.println(g.random());
         }
