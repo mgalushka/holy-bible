@@ -1,32 +1,20 @@
-int lastX, lastY, lastT;
-int frame = 0;
-float s = 0;
-int delta = 100;
-float v = 0;
+import com.maximgalushka.bible;
+
+Gather g = new Gather();
+String verse;
 
 void setup() {
-  size(400, 400);
-  rect(10, 10, 380, 380);
-  stroke(0, 0, 0, 100);
+  size(800, 600);
+  rect(10, 10, 780, 580);
+  //stroke(0, 0, 0, 100);
+  
+  verse = g.random();
 }
 
 void draw() {
-  int m = millis();  
-  if (m >= frame) {
-    v = speed(lastX, lastY, mouseX, mouseY, m - lastT);
-    frame += 100;
-    lastX = mouseX;
-    lastY = mouseY;
-    lastT = m;
-  }
-  else {
-    ellipse(mouseX, mouseY, v*15, v*15);
-  }
+  text(200, 200, verse);
 }
 
-float speed(int px, int py, int nx, int ny, int time) {
-  return dist(px, py, nx, ny)/time;
-}
 
 void next() {
 }

@@ -29,12 +29,16 @@ public class Gather {
 
     private Random r;
 
-    public Gather() throws UnirestException {
-        this.api = new BibleApi();
-        this.r = new Random(System.currentTimeMillis());
-        this.q = new LinkedBlockingQueue<String>();
-        this.exec = Executors.newSingleThreadScheduledExecutor();
-        init();
+    public Gather() {
+        try {
+            this.api = new BibleApi();
+            this.r = new Random(System.currentTimeMillis());
+            this.q = new LinkedBlockingQueue<String>();
+            this.exec = Executors.newSingleThreadScheduledExecutor();
+            init();
+        } catch (UnirestException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void init() throws UnirestException {
