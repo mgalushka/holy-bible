@@ -81,7 +81,7 @@ public class Gather {
         String[] testament = (t == 0) ? oldTestament : newTestament;
         String book = testament[r.nextInt(testament.length - 1) + 1];
 
-        int chapter = r.nextInt(50);
+        int chapter = r.nextInt(49) + 1;
         while (true) {
             JsonNode chapters = api.request(
                     String.format("%s?Book=%s&chapter=%d", GET_CHAPTER, book, chapter));
@@ -102,7 +102,7 @@ public class Gather {
     }
 
     public static void main(String[] args) throws UnirestException {
-        Gather g = new Gather(1);
+        Gather g = new Gather(5);
         for (int i = 0; i < 20; i++) {
             System.out.println(g.random());
         }
