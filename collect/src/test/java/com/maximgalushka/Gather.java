@@ -25,7 +25,7 @@ public class Gather {
                         .asJson();
 
         JsonNode nd = request.getBody();
-        String[] books = nd.getObject().get("The_New_Testament").toString().split("\\d+\\.\\s+");
+        String[] books = nd.getObject().get("The_New_Testament").toString().split("\\s?\\d+\\.\\s?");
         System.out.println(Arrays.toString(books));
     }
 }
