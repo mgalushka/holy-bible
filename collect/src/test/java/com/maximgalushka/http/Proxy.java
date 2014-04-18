@@ -1,14 +1,8 @@
 package com.maximgalushka.http;
 
 import org.apache.http.HttpHost;
-import org.apache.http.auth.AuthScope;
-import org.apache.http.auth.NTCredentials;
-import org.apache.http.auth.params.AuthPNames;
 import org.apache.http.client.HttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * <p></p>

@@ -23,7 +23,7 @@ public class BibleApi {
 
     public JsonNode request(String call) throws UnirestException {
         String url = String.format("%s/%s", BIBLE_API, call);
-        System.out.println(url);
+        System.out.printf("Requesting: [%s]\n", url);
         HttpResponse<JsonNode> request =
                 Unirest.get(url).header("X-Mashape-Authorization", BIBLE_API_KEY).asJson();
         return request.getBody();
