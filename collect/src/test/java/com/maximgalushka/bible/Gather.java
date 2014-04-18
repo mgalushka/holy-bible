@@ -27,6 +27,7 @@ public class Gather {
         System.out.println(Arrays.toString(oldTestament));
 
         for (String book : newTestament) {
+            if ("".equals(book)) continue;
             boolean incorrect = false;
             int id = 1;
             while (!incorrect) {

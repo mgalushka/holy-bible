@@ -8,7 +8,7 @@ package com.maximgalushka.bible;
  */
 public final class Constants {
 
-    public static final String BIBLE_API = "https://ajith-holy-bible.p.mashape.com/GetBooks";
+    public static final String BIBLE_API = "https://ajith-holy-bible.p.mashape.com";
     public static final String BIBLE_API_KEY = "PUB36RSox7_yYstDrZb-vmUh%aLky_Wn";
 
     public static class Command{
